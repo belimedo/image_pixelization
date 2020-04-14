@@ -1,0 +1,92 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\A6\Documents\intelFPGA\16.1\URS\image_pixelization\impix_system\impix_system.qsys --block-symbol-file --output-directory=C:\Users\A6\Documents\intelFPGA\16.1\URS\image_pixelization\impix_system\impix_system --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading impix_system/impix_system.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 16.1]
+Progress: Parameterizing module clk_0
+Progress: Adding hps_0 [altera_hps 16.1]
+Progress: Parameterizing module hps_0
+Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 16.1]
+Progress: Parameterizing module jtag_uart_0
+Progress: Adding sysid_qsys_0 [altera_avalon_sysid_qsys 16.1]
+Progress: Parameterizing module sysid_qsys_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: impix_system.hps_0: HPS Main PLL counter settings: n = 0  m = 63
+Info: impix_system.hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
+Info: impix_system.jtag_uart_0: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: impix_system.sysid_qsys_0: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: impix_system.sysid_qsys_0: Time stamp will be automatically updated when this component is generated.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\A6\Documents\intelFPGA\16.1\URS\image_pixelization\impix_system\impix_system.qsys --synthesis=VHDL --output-directory=C:\Users\A6\Documents\intelFPGA\16.1\URS\image_pixelization\impix_system\impix_system\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading impix_system/impix_system.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 16.1]
+Progress: Parameterizing module clk_0
+Progress: Adding hps_0 [altera_hps 16.1]
+Progress: Parameterizing module hps_0
+Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 16.1]
+Progress: Parameterizing module jtag_uart_0
+Progress: Adding sysid_qsys_0 [altera_avalon_sysid_qsys 16.1]
+Progress: Parameterizing module sysid_qsys_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: impix_system.hps_0: HPS Main PLL counter settings: n = 0  m = 63
+Info: impix_system.hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
+Info: impix_system.jtag_uart_0: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: impix_system.sysid_qsys_0: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: impix_system.sysid_qsys_0: Time stamp will be automatically updated when this component is generated.
+Info: impix_system: Generating impix_system "impix_system" for QUARTUS_SYNTH
+Warning: hps_0.f2h_irq0: Cannot connect clock for irq_mapper.sender
+Warning: hps_0.f2h_irq0: Cannot connect reset for irq_mapper.sender
+Warning: hps_0.f2h_irq1: Cannot connect clock for irq_mapper_001.sender
+Warning: hps_0.f2h_irq1: Cannot connect reset for irq_mapper_001.sender
+Info: hps_0: "Running  for module: hps_0"
+Info: hps_0: HPS Main PLL counter settings: n = 0  m = 63
+Info: hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
+Info: hps_0: "impix_system" instantiated altera_hps "hps_0"
+Info: jtag_uart_0: Starting RTL generation for module 'impix_system_jtag_uart_0'
+Info: jtag_uart_0:   Generation command is [exec C:/intelfpga/16.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga/16.1/quartus/bin64/perl/lib -I C:/intelfpga/16.1/quartus/sopc_builder/bin/europa -I C:/intelfpga/16.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga/16.1/quartus/sopc_builder/bin -I C:/intelfpga/16.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/intelfpga/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=impix_system_jtag_uart_0 --dir=C:/Users/A6/AppData/Local/Temp/alt8366_8409398103428398501.dir/0001_jtag_uart_0_gen/ --quartus_dir=C:/intelfpga/16.1/quartus --verilog --config=C:/Users/A6/AppData/Local/Temp/alt8366_8409398103428398501.dir/0001_jtag_uart_0_gen//impix_system_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart_0: Done RTL generation for module 'impix_system_jtag_uart_0'
+Info: jtag_uart_0: "impix_system" instantiated altera_avalon_jtag_uart "jtag_uart_0"
+Info: sysid_qsys_0: "impix_system" instantiated altera_avalon_sysid_qsys "sysid_qsys_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "impix_system" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: "impix_system" instantiated altera_irq_mapper "irq_mapper"
+Info: irq_mapper_001: "impix_system" instantiated altera_irq_mapper "irq_mapper_001"
+Info: rst_controller: "impix_system" instantiated altera_reset_controller "rst_controller"
+Info: fpga_interfaces: "hps_0" instantiated altera_interface_generator "fpga_interfaces"
+Info: hps_io: "hps_0" instantiated altera_hps_io "hps_io"
+Info: jtag_uart_0_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_0_avalon_jtag_slave_translator"
+Info: hps_0_h2f_axi_master_agent: "mm_interconnect_0" instantiated altera_merlin_axi_master_ni "hps_0_h2f_axi_master_agent"
+Info: jtag_uart_0_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "jtag_uart_0_avalon_jtag_slave_agent"
+Info: jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: hps_0_h2f_axi_master_wr_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "hps_0_h2f_axi_master_wr_limiter"
+Info: Reusing file C:/Users/A6/Documents/intelFPGA/16.1/URS/image_pixelization/impix_system/impix_system/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: jtag_uart_0_avalon_jtag_slave_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "jtag_uart_0_avalon_jtag_slave_burst_adapter"
+Info: Reusing file C:/Users/A6/Documents/intelFPGA/16.1/URS/image_pixelization/impix_system/impix_system/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file C:/Users/A6/Documents/intelFPGA/16.1/URS/image_pixelization/impix_system/impix_system/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/Users/A6/Documents/intelFPGA/16.1/URS/image_pixelization/impix_system/impix_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: jtag_uart_0_avalon_jtag_slave_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "jtag_uart_0_avalon_jtag_slave_rsp_width_adapter"
+Info: Reusing file C:/Users/A6/Documents/intelFPGA/16.1/URS/image_pixelization/impix_system/impix_system/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file C:/Users/A6/Documents/intelFPGA/16.1/URS/image_pixelization/impix_system/impix_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: border: "hps_io" instantiated altera_interface_generator "border"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: impix_system: Done "impix_system" with 26 modules, 83 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
