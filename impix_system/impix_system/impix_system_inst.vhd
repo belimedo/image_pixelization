@@ -1,7 +1,6 @@
 	component impix_system is
 		port (
 			clk_clk                           : in    std_logic                     := 'X';             -- clk
-			reset_reset_n                     : in    std_logic                     := 'X';             -- reset_n
 			hps_0_ddr_mem_a                   : out   std_logic_vector(14 downto 0);                    -- mem_a
 			hps_0_ddr_mem_ba                  : out   std_logic_vector(2 downto 0);                     -- mem_ba
 			hps_0_ddr_mem_ck                  : out   std_logic;                                        -- mem_ck
@@ -18,6 +17,7 @@
 			hps_0_ddr_mem_odt                 : out   std_logic;                                        -- mem_odt
 			hps_0_ddr_mem_dm                  : out   std_logic_vector(3 downto 0);                     -- mem_dm
 			hps_0_ddr_oct_rzqin               : in    std_logic                     := 'X';             -- oct_rzqin
+			hps_0_h2f_reset_reset_n           : out   std_logic;                                        -- reset_n
 			hps_0_io_hps_io_emac1_inst_TX_CLK : out   std_logic;                                        -- hps_io_emac1_inst_TX_CLK
 			hps_0_io_hps_io_emac1_inst_TXD0   : out   std_logic;                                        -- hps_io_emac1_inst_TXD0
 			hps_0_io_hps_io_emac1_inst_TXD1   : out   std_logic;                                        -- hps_io_emac1_inst_TXD1
@@ -73,14 +73,13 @@
 			hps_0_io_hps_io_gpio_inst_GPIO53  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO53
 			hps_0_io_hps_io_gpio_inst_GPIO54  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO54
 			hps_0_io_hps_io_gpio_inst_GPIO61  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO61
-			hps_0_h2f_reset_reset_n           : out   std_logic                                         -- reset_n
+			reset_reset_n                     : in    std_logic                     := 'X'              -- reset_n
 		);
 	end component impix_system;
 
 	u0 : component impix_system
 		port map (
 			clk_clk                           => CONNECTED_TO_clk_clk,                           --             clk.clk
-			reset_reset_n                     => CONNECTED_TO_reset_reset_n,                     --           reset.reset_n
 			hps_0_ddr_mem_a                   => CONNECTED_TO_hps_0_ddr_mem_a,                   --       hps_0_ddr.mem_a
 			hps_0_ddr_mem_ba                  => CONNECTED_TO_hps_0_ddr_mem_ba,                  --                .mem_ba
 			hps_0_ddr_mem_ck                  => CONNECTED_TO_hps_0_ddr_mem_ck,                  --                .mem_ck
@@ -97,6 +96,7 @@
 			hps_0_ddr_mem_odt                 => CONNECTED_TO_hps_0_ddr_mem_odt,                 --                .mem_odt
 			hps_0_ddr_mem_dm                  => CONNECTED_TO_hps_0_ddr_mem_dm,                  --                .mem_dm
 			hps_0_ddr_oct_rzqin               => CONNECTED_TO_hps_0_ddr_oct_rzqin,               --                .oct_rzqin
+			hps_0_h2f_reset_reset_n           => CONNECTED_TO_hps_0_h2f_reset_reset_n,           -- hps_0_h2f_reset.reset_n
 			hps_0_io_hps_io_emac1_inst_TX_CLK => CONNECTED_TO_hps_0_io_hps_io_emac1_inst_TX_CLK, --        hps_0_io.hps_io_emac1_inst_TX_CLK
 			hps_0_io_hps_io_emac1_inst_TXD0   => CONNECTED_TO_hps_0_io_hps_io_emac1_inst_TXD0,   --                .hps_io_emac1_inst_TXD0
 			hps_0_io_hps_io_emac1_inst_TXD1   => CONNECTED_TO_hps_0_io_hps_io_emac1_inst_TXD1,   --                .hps_io_emac1_inst_TXD1
@@ -152,6 +152,6 @@
 			hps_0_io_hps_io_gpio_inst_GPIO53  => CONNECTED_TO_hps_0_io_hps_io_gpio_inst_GPIO53,  --                .hps_io_gpio_inst_GPIO53
 			hps_0_io_hps_io_gpio_inst_GPIO54  => CONNECTED_TO_hps_0_io_hps_io_gpio_inst_GPIO54,  --                .hps_io_gpio_inst_GPIO54
 			hps_0_io_hps_io_gpio_inst_GPIO61  => CONNECTED_TO_hps_0_io_hps_io_gpio_inst_GPIO61,  --                .hps_io_gpio_inst_GPIO61
-			hps_0_h2f_reset_reset_n           => CONNECTED_TO_hps_0_h2f_reset_reset_n            -- hps_0_h2f_reset.reset_n
+			reset_reset_n                     => CONNECTED_TO_reset_reset_n                      --           reset.reset_n
 		);
 

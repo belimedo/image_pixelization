@@ -4,7 +4,7 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
-Copyright (C) 2016  Intel Corporation. All rights reserved.
+Copyright (C) 2017  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -622,7 +622,7 @@ agreement for further details.
 		(text "hps_io_gpio_inst_GPIO61" (rect 213 971 564 1952)(font "Arial" (color 0 0 0)))
 		(text "reset" (rect 179 987 388 1987)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "reset_n" (rect 213 1011 468 2032)(font "Arial" (color 0 0 0)))
-		(text " impix_system " (rect 561 1032 1206 2074)(font "Arial" ))
+		(text " system " (rect 589 1032 1226 2074)(font "Arial" ))
 		(line (pt 208 32)(pt 416 32)(line_width 1))
 		(line (pt 416 32)(pt 416 1032)(line_width 1))
 		(line (pt 208 1032)(pt 416 1032)(line_width 1))

@@ -1,4 +1,4 @@
-# (C) 2001-2016 Intel Corporation. All rights reserved.
+# (C) 2001-2017 Intel Corporation. All rights reserved.
 # Your use of Intel Corporation's design tools, logic functions and other 
 # software and tools, and its AMPP partner logic functions, and any output 
 # files any of the foregoing (including device programming or simulation 

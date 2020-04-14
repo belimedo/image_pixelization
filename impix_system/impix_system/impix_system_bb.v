@@ -1,7 +1,6 @@
 
 module impix_system (
 	clk_clk,
-	reset_reset_n,
 	hps_0_ddr_mem_a,
 	hps_0_ddr_mem_ba,
 	hps_0_ddr_mem_ck,
@@ -18,6 +17,7 @@ module impix_system (
 	hps_0_ddr_mem_odt,
 	hps_0_ddr_mem_dm,
 	hps_0_ddr_oct_rzqin,
+	hps_0_h2f_reset_reset_n,
 	hps_0_io_hps_io_emac1_inst_TX_CLK,
 	hps_0_io_hps_io_emac1_inst_TXD0,
 	hps_0_io_hps_io_emac1_inst_TXD1,
@@ -73,10 +73,9 @@ module impix_system (
 	hps_0_io_hps_io_gpio_inst_GPIO53,
 	hps_0_io_hps_io_gpio_inst_GPIO54,
 	hps_0_io_hps_io_gpio_inst_GPIO61,
-	hps_0_h2f_reset_reset_n);	
+	reset_reset_n);	
 
 	input		clk_clk;
-	input		reset_reset_n;
 	output	[14:0]	hps_0_ddr_mem_a;
 	output	[2:0]	hps_0_ddr_mem_ba;
 	output		hps_0_ddr_mem_ck;
@@ -93,6 +92,7 @@ module impix_system (
 	output		hps_0_ddr_mem_odt;
 	output	[3:0]	hps_0_ddr_mem_dm;
 	input		hps_0_ddr_oct_rzqin;
+	output		hps_0_h2f_reset_reset_n;
 	output		hps_0_io_hps_io_emac1_inst_TX_CLK;
 	output		hps_0_io_hps_io_emac1_inst_TXD0;
 	output		hps_0_io_hps_io_emac1_inst_TXD1;
@@ -148,5 +148,5 @@ module impix_system (
 	inout		hps_0_io_hps_io_gpio_inst_GPIO53;
 	inout		hps_0_io_hps_io_gpio_inst_GPIO54;
 	inout		hps_0_io_hps_io_gpio_inst_GPIO61;
-	output		hps_0_h2f_reset_reset_n;
+	input		reset_reset_n;
 endmodule

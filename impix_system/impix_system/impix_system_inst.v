@@ -1,6 +1,5 @@
 	impix_system u0 (
 		.clk_clk                           (<connected-to-clk_clk>),                           //             clk.clk
-		.reset_reset_n                     (<connected-to-reset_reset_n>),                     //           reset.reset_n
 		.hps_0_ddr_mem_a                   (<connected-to-hps_0_ddr_mem_a>),                   //       hps_0_ddr.mem_a
 		.hps_0_ddr_mem_ba                  (<connected-to-hps_0_ddr_mem_ba>),                  //                .mem_ba
 		.hps_0_ddr_mem_ck                  (<connected-to-hps_0_ddr_mem_ck>),                  //                .mem_ck
@@ -17,6 +16,7 @@
 		.hps_0_ddr_mem_odt                 (<connected-to-hps_0_ddr_mem_odt>),                 //                .mem_odt
 		.hps_0_ddr_mem_dm                  (<connected-to-hps_0_ddr_mem_dm>),                  //                .mem_dm
 		.hps_0_ddr_oct_rzqin               (<connected-to-hps_0_ddr_oct_rzqin>),               //                .oct_rzqin
+		.hps_0_h2f_reset_reset_n           (<connected-to-hps_0_h2f_reset_reset_n>),           // hps_0_h2f_reset.reset_n
 		.hps_0_io_hps_io_emac1_inst_TX_CLK (<connected-to-hps_0_io_hps_io_emac1_inst_TX_CLK>), //        hps_0_io.hps_io_emac1_inst_TX_CLK
 		.hps_0_io_hps_io_emac1_inst_TXD0   (<connected-to-hps_0_io_hps_io_emac1_inst_TXD0>),   //                .hps_io_emac1_inst_TXD0
 		.hps_0_io_hps_io_emac1_inst_TXD1   (<connected-to-hps_0_io_hps_io_emac1_inst_TXD1>),   //                .hps_io_emac1_inst_TXD1
@@ -72,6 +72,6 @@
 		.hps_0_io_hps_io_gpio_inst_GPIO53  (<connected-to-hps_0_io_hps_io_gpio_inst_GPIO53>),  //                .hps_io_gpio_inst_GPIO53
 		.hps_0_io_hps_io_gpio_inst_GPIO54  (<connected-to-hps_0_io_hps_io_gpio_inst_GPIO54>),  //                .hps_io_gpio_inst_GPIO54
 		.hps_0_io_hps_io_gpio_inst_GPIO61  (<connected-to-hps_0_io_hps_io_gpio_inst_GPIO61>),  //                .hps_io_gpio_inst_GPIO61
-		.hps_0_h2f_reset_reset_n           (<connected-to-hps_0_h2f_reset_reset_n>)            // hps_0_h2f_reset.reset_n
+		.reset_reset_n                     (<connected-to-reset_reset_n>)                      //           reset.reset_n
 	);
 
