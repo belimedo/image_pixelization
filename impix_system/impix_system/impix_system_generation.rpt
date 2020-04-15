@@ -10,6 +10,8 @@ Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 17.0]
 Progress: Parameterizing module jtag_uart_0
 Progress: Adding pio_0 [altera_avalon_pio 17.0]
 Progress: Parameterizing module pio_0
+Progress: Adding switches_input [altera_avalon_pio 17.0]
+Progress: Parameterizing module switches_input
 Progress: Adding sysid_qsys_0 [altera_avalon_sysid_qsys 17.0]
 Progress: Parameterizing module sysid_qsys_0
 Progress: Building connections
@@ -19,6 +21,7 @@ Progress: Done reading input file
 Info: impix_system.hps_0: HPS Main PLL counter settings: n = 0  m = 63
 Info: impix_system.hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
 Info: impix_system.jtag_uart_0: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: impix_system.switches_input: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
 Info: impix_system.sysid_qsys_0: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
 Info: impix_system.sysid_qsys_0: Time stamp will be automatically updated when this component is generated.
 Info: impix_system: Generating impix_system "impix_system" for QUARTUS_SYNTH
@@ -31,17 +34,22 @@ Info: hps_0: HPS Main PLL counter settings: n = 0  m = 63
 Info: hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
 Info: hps_0: "impix_system" instantiated altera_hps "hps_0"
 Info: jtag_uart_0: Starting RTL generation for module 'impix_system_jtag_uart_0'
-Info: jtag_uart_0:   Generation command is [exec /home/milan/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/milan/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=impix_system_jtag_uart_0 --dir=/tmp/alt8367_1095755310149039397.dir/0001_jtag_uart_0_gen/ --quartus_dir=/home/milan/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt8367_1095755310149039397.dir/0001_jtag_uart_0_gen//impix_system_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart_0:   Generation command is [exec /home/milan/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/milan/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=impix_system_jtag_uart_0 --dir=/tmp/alt8367_5567350666550115427.dir/0001_jtag_uart_0_gen/ --quartus_dir=/home/milan/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt8367_5567350666550115427.dir/0001_jtag_uart_0_gen//impix_system_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]
 Info: jtag_uart_0: Done RTL generation for module 'impix_system_jtag_uart_0'
 Info: jtag_uart_0: "impix_system" instantiated altera_avalon_jtag_uart "jtag_uart_0"
 Info: pio_0: Starting RTL generation for module 'impix_system_pio_0'
-Info: pio_0:   Generation command is [exec /home/milan/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/milan/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=impix_system_pio_0 --dir=/tmp/alt8367_1095755310149039397.dir/0002_pio_0_gen/ --quartus_dir=/home/milan/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt8367_1095755310149039397.dir/0002_pio_0_gen//impix_system_pio_0_component_configuration.pl  --do_build_sim=0  ]
+Info: pio_0:   Generation command is [exec /home/milan/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/milan/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=impix_system_pio_0 --dir=/tmp/alt8367_5567350666550115427.dir/0002_pio_0_gen/ --quartus_dir=/home/milan/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt8367_5567350666550115427.dir/0002_pio_0_gen//impix_system_pio_0_component_configuration.pl  --do_build_sim=0  ]
 Info: pio_0: Done RTL generation for module 'impix_system_pio_0'
 Info: pio_0: "impix_system" instantiated altera_avalon_pio "pio_0"
+Info: switches_input: Starting RTL generation for module 'impix_system_switches_input'
+Info: switches_input:   Generation command is [exec /home/milan/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/milan/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/milan/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/milan/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=impix_system_switches_input --dir=/tmp/alt8367_5567350666550115427.dir/0003_switches_input_gen/ --quartus_dir=/home/milan/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt8367_5567350666550115427.dir/0003_switches_input_gen//impix_system_switches_input_component_configuration.pl  --do_build_sim=0  ]
+Info: switches_input: Done RTL generation for module 'impix_system_switches_input'
+Info: switches_input: "impix_system" instantiated altera_avalon_pio "switches_input"
 Info: sysid_qsys_0: "impix_system" instantiated altera_avalon_sysid_qsys "sysid_qsys_0"
 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
 Info: mm_interconnect_0: "impix_system" instantiated altera_mm_interconnect "mm_interconnect_0"
 Info: irq_mapper: "impix_system" instantiated altera_irq_mapper "irq_mapper"
 Info: irq_mapper_001: "impix_system" instantiated altera_irq_mapper "irq_mapper_001"
@@ -70,6 +78,6 @@ Info: Reusing file /home/milan/URS/Git/image_pixelization/impix_system/impix_sys
 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
 Info: border: "hps_io" instantiated altera_interface_generator "border"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
-Info: impix_system: Done "impix_system" with 27 modules, 84 files
+Info: impix_system: Done "impix_system" with 28 modules, 85 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

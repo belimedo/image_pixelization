@@ -20,15 +20,40 @@
  */
 
 /*
+ * Macros for device 'switches_input', class 'altera_avalon_pio'
+ * The macros are prefixed with 'SWITCHES_INPUT_'.
+ * The prefix is the slave descriptor.
+ */
+#define SWITCHES_INPUT_COMPONENT_TYPE altera_avalon_pio
+#define SWITCHES_INPUT_COMPONENT_NAME switches_input
+#define SWITCHES_INPUT_BASE 0x0
+#define SWITCHES_INPUT_SPAN 16
+#define SWITCHES_INPUT_END 0xf
+#define SWITCHES_INPUT_IRQ 1
+#define SWITCHES_INPUT_BIT_CLEARING_EDGE_REGISTER 0
+#define SWITCHES_INPUT_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define SWITCHES_INPUT_CAPTURE 1
+#define SWITCHES_INPUT_DATA_WIDTH 4
+#define SWITCHES_INPUT_DO_TEST_BENCH_WIRING 0
+#define SWITCHES_INPUT_DRIVEN_SIM_VALUE 0
+#define SWITCHES_INPUT_EDGE_TYPE ANY
+#define SWITCHES_INPUT_FREQ 50000000
+#define SWITCHES_INPUT_HAS_IN 1
+#define SWITCHES_INPUT_HAS_OUT 0
+#define SWITCHES_INPUT_HAS_TRI 0
+#define SWITCHES_INPUT_IRQ_TYPE EDGE
+#define SWITCHES_INPUT_RESET_VALUE 0
+
+/*
  * Macros for device 'pio_0', class 'altera_avalon_pio'
  * The macros are prefixed with 'PIO_0_'.
  * The prefix is the slave descriptor.
  */
 #define PIO_0_COMPONENT_TYPE altera_avalon_pio
 #define PIO_0_COMPONENT_NAME pio_0
-#define PIO_0_BASE 0x0
+#define PIO_0_BASE 0x10
 #define PIO_0_SPAN 16
-#define PIO_0_END 0xf
+#define PIO_0_END 0x1f
 #define PIO_0_BIT_CLEARING_EDGE_REGISTER 1
 #define PIO_0_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PIO_0_CAPTURE 0
@@ -50,11 +75,11 @@
  */
 #define SYSID_QSYS_0_COMPONENT_TYPE altera_avalon_sysid_qsys
 #define SYSID_QSYS_0_COMPONENT_NAME sysid_qsys_0
-#define SYSID_QSYS_0_BASE 0x10
+#define SYSID_QSYS_0_BASE 0x20
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_END 0x17
+#define SYSID_QSYS_0_END 0x27
 #define SYSID_QSYS_0_ID 0
-#define SYSID_QSYS_0_TIMESTAMP 1586947588
+#define SYSID_QSYS_0_TIMESTAMP 1586968824
 
 /*
  * Macros for device 'jtag_uart_0', class 'altera_avalon_jtag_uart'
@@ -63,9 +88,9 @@
  */
 #define JTAG_UART_0_COMPONENT_TYPE altera_avalon_jtag_uart
 #define JTAG_UART_0_COMPONENT_NAME jtag_uart_0
-#define JTAG_UART_0_BASE 0x18
+#define JTAG_UART_0_BASE 0x28
 #define JTAG_UART_0_SPAN 8
-#define JTAG_UART_0_END 0x1f
+#define JTAG_UART_0_END 0x2f
 #define JTAG_UART_0_IRQ 0
 #define JTAG_UART_0_READ_DEPTH 64
 #define JTAG_UART_0_READ_THRESHOLD 8

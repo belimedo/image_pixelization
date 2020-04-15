@@ -37,7 +37,7 @@
    {
       datum baseAddress
       {
-         value = "24";
+         value = "40";
          type = "String";
       }
    }
@@ -50,6 +50,22 @@
       }
    }
    element pio_0.s1
+   {
+      datum baseAddress
+      {
+         value = "16";
+         type = "String";
+      }
+   }
+   element switches_input
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+   }
+   element switches_input.s1
    {
       datum baseAddress
       {
@@ -69,7 +85,7 @@
    {
       datum baseAddress
       {
-         value = "16";
+         value = "32";
          type = "String";
       }
    }
@@ -108,6 +124,11 @@
    type="conduit"
    dir="end" />
  <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
+ <interface
+   name="switches"
+   internal="switches_input.external_connection"
+   type="conduit"
+   dir="end" />
  <module name="clk_0" kind="clock_source" version="17.0" enabled="1">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -678,6 +699,24 @@
   <parameter name="width" value="4" />
  </module>
  <module
+   name="switches_input"
+   kind="altera_avalon_pio"
+   version="17.0"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="true" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="ANY" />
+  <parameter name="generateIRQ" value="true" />
+  <parameter name="irqType" value="EDGE" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="4" />
+ </module>
+ <module
    name="sysid_qsys_0"
    kind="altera_avalon_sysid_qsys"
    version="17.0"
@@ -690,7 +729,7 @@
    start="hps_0.h2f_axi_master"
    end="jtag_uart_0.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0018" />
+  <parameter name="baseAddress" value="0x0028" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -699,7 +738,7 @@
    start="hps_0.h2f_axi_master"
    end="sysid_qsys_0.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0010" />
+  <parameter name="baseAddress" value="0x0020" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -708,12 +747,26 @@
    start="hps_0.h2f_axi_master"
    end="pio_0.s1">
   <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0010" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="17.0"
+   start="hps_0.h2f_axi_master"
+   end="switches_input.s1">
+  <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="17.0" start="clk_0.clk" end="sysid_qsys_0.clk" />
  <connection kind="clock" version="17.0" start="clk_0.clk" end="jtag_uart_0.clk" />
  <connection kind="clock" version="17.0" start="clk_0.clk" end="pio_0.clk" />
+ <connection
+   kind="clock"
+   version="17.0"
+   start="clk_0.clk"
+   end="switches_input.clk" />
  <connection
    kind="clock"
    version="17.0"
@@ -732,6 +785,13 @@
   <parameter name="irqNumber" value="0" />
  </connection>
  <connection
+   kind="interrupt"
+   version="17.0"
+   start="hps_0.f2h_irq0"
+   end="switches_input.irq">
+  <parameter name="irqNumber" value="1" />
+ </connection>
+ <connection
    kind="reset"
    version="17.0"
    start="clk_0.clk_reset"
@@ -742,6 +802,11 @@
    start="clk_0.clk_reset"
    end="jtag_uart_0.reset" />
  <connection kind="reset" version="17.0" start="clk_0.clk_reset" end="pio_0.reset" />
+ <connection
+   kind="reset"
+   version="17.0"
+   start="clk_0.clk_reset"
+   end="switches_input.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

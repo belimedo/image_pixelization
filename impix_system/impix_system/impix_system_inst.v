@@ -72,7 +72,8 @@
 		.hps_0_io_hps_io_gpio_inst_GPIO53  (<connected-to-hps_0_io_hps_io_gpio_inst_GPIO53>),  //                .hps_io_gpio_inst_GPIO53
 		.hps_0_io_hps_io_gpio_inst_GPIO54  (<connected-to-hps_0_io_hps_io_gpio_inst_GPIO54>),  //                .hps_io_gpio_inst_GPIO54
 		.hps_0_io_hps_io_gpio_inst_GPIO61  (<connected-to-hps_0_io_hps_io_gpio_inst_GPIO61>),  //                .hps_io_gpio_inst_GPIO61
+		.indicators_export                 (<connected-to-indicators_export>),                 //      indicators.export
 		.reset_reset_n                     (<connected-to-reset_reset_n>),                     //           reset.reset_n
-		.indicators_export                 (<connected-to-indicators_export>)                  //      indicators.export
+		.switches_export                   (<connected-to-switches_export>)                    //        switches.export
 	);
 

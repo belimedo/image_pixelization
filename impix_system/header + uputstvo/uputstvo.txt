@@ -4,3 +4,6 @@ Ovo je uputstvo kako generisati header fajl sa svim base adresama u ciljanom sis
 3. Pozicionira se u direktorijum intelFPGA_lite/<version>/quartus/sopc_builder/bin iz embedded_command_shell -a 
 4. Na PATH se doda pozicija tog foldera (dobije se pwd komandom) PATH = $PATH:+ (ono sto se dobije iz pwd-a)
 5. Pokrene se sopc-create-header-files sa komandom: ./sopc-create-header-files "./impix_system.sopcinfo" --single addres_base.h --module hps_0
+
+Sajt sa adresom za HPS2FPGA AXI Bridge adresom:
+https://www.intel.com/content/www/us/en/programmable/hps/cyclone-v/hps.html

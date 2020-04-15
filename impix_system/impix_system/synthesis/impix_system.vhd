@@ -82,7 +82,8 @@ entity impix_system is
 		hps_0_io_hps_io_gpio_inst_GPIO54  : inout std_logic                     := '0';             --                .hps_io_gpio_inst_GPIO54
 		hps_0_io_hps_io_gpio_inst_GPIO61  : inout std_logic                     := '0';             --                .hps_io_gpio_inst_GPIO61
 		indicators_export                 : out   std_logic_vector(3 downto 0);                     --      indicators.export
-		reset_reset_n                     : in    std_logic                     := '0'              --           reset.reset_n
+		reset_reset_n                     : in    std_logic                     := '0';             --           reset.reset_n
+		switches_export                   : in    std_logic_vector(3 downto 0)  := (others => '0')  --        switches.export
 	);
 end entity impix_system;
 
@@ -274,6 +275,20 @@ architecture rtl of impix_system is
 		);
 	end component impix_system_pio_0;
 
+	component impix_system_switches_input is
+		port (
+			clk        : in  std_logic                     := 'X';             -- clk
+			reset_n    : in  std_logic                     := 'X';             -- reset_n
+			address    : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			write_n    : in  std_logic                     := 'X';             -- write_n
+			writedata  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			chipselect : in  std_logic                     := 'X';             -- chipselect
+			readdata   : out std_logic_vector(31 downto 0);                    -- readdata
+			in_port    : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- export
+			irq        : out std_logic                                         -- irq
+		);
+	end component impix_system_switches_input;
+
 	component impix_system_sysid_qsys_0 is
 		port (
 			clock    : in  std_logic                     := 'X'; -- clk
@@ -336,6 +351,11 @@ architecture rtl of impix_system is
 			pio_0_s1_readdata                                                : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			pio_0_s1_writedata                                               : out std_logic_vector(31 downto 0);                    -- writedata
 			pio_0_s1_chipselect                                              : out std_logic;                                        -- chipselect
+			switches_input_s1_address                                        : out std_logic_vector(1 downto 0);                     -- address
+			switches_input_s1_write                                          : out std_logic;                                        -- write
+			switches_input_s1_readdata                                       : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			switches_input_s1_writedata                                      : out std_logic_vector(31 downto 0);                    -- writedata
+			switches_input_s1_chipselect                                     : out std_logic;                                        -- chipselect
 			sysid_qsys_0_control_slave_address                               : out std_logic_vector(0 downto 0);                     -- address
 			sysid_qsys_0_control_slave_readdata                              : in  std_logic_vector(31 downto 0) := (others => 'X')  -- readdata
 		);
@@ -346,6 +366,7 @@ architecture rtl of impix_system is
 			clk           : in  std_logic                     := 'X'; -- clk
 			reset         : in  std_logic                     := 'X'; -- reset
 			receiver0_irq : in  std_logic                     := 'X'; -- irq
+			receiver1_irq : in  std_logic                     := 'X'; -- irq
 			sender_irq    : out std_logic_vector(31 downto 0)         -- irq
 		);
 	end component impix_system_irq_mapper;
@@ -475,7 +496,13 @@ architecture rtl of impix_system is
 	signal mm_interconnect_0_pio_0_s1_address                              : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pio_0_s1_address -> pio_0:address
 	signal mm_interconnect_0_pio_0_s1_write                                : std_logic;                     -- mm_interconnect_0:pio_0_s1_write -> mm_interconnect_0_pio_0_s1_write:in
 	signal mm_interconnect_0_pio_0_s1_writedata                            : std_logic_vector(31 downto 0); -- mm_interconnect_0:pio_0_s1_writedata -> pio_0:writedata
+	signal mm_interconnect_0_switches_input_s1_chipselect                  : std_logic;                     -- mm_interconnect_0:switches_input_s1_chipselect -> switches_input:chipselect
+	signal mm_interconnect_0_switches_input_s1_readdata                    : std_logic_vector(31 downto 0); -- switches_input:readdata -> mm_interconnect_0:switches_input_s1_readdata
+	signal mm_interconnect_0_switches_input_s1_address                     : std_logic_vector(1 downto 0);  -- mm_interconnect_0:switches_input_s1_address -> switches_input:address
+	signal mm_interconnect_0_switches_input_s1_write                       : std_logic;                     -- mm_interconnect_0:switches_input_s1_write -> mm_interconnect_0_switches_input_s1_write:in
+	signal mm_interconnect_0_switches_input_s1_writedata                   : std_logic_vector(31 downto 0); -- mm_interconnect_0:switches_input_s1_writedata -> switches_input:writedata
 	signal irq_mapper_receiver0_irq                                        : std_logic;                     -- jtag_uart_0:av_irq -> irq_mapper:receiver0_irq
+	signal irq_mapper_receiver1_irq                                        : std_logic;                     -- switches_input:irq -> irq_mapper:receiver1_irq
 	signal hps_0_f2h_irq0_irq                                              : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> hps_0:f2h_irq_p0
 	signal hps_0_f2h_irq1_irq                                              : std_logic_vector(31 downto 0); -- irq_mapper_001:sender_irq -> hps_0:f2h_irq_p1
 	signal rst_controller_reset_out_reset                                  : std_logic;                     -- rst_controller:reset_out -> [mm_interconnect_0:jtag_uart_0_reset_reset_bridge_in_reset_reset, rst_controller_reset_out_reset:in]
@@ -485,7 +512,8 @@ architecture rtl of impix_system is
 	signal mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read_ports_inv  : std_logic;                     -- mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read:inv -> jtag_uart_0:av_read_n
 	signal mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write_ports_inv : std_logic;                     -- mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write:inv -> jtag_uart_0:av_write_n
 	signal mm_interconnect_0_pio_0_s1_write_ports_inv                      : std_logic;                     -- mm_interconnect_0_pio_0_s1_write:inv -> pio_0:write_n
-	signal rst_controller_reset_out_reset_ports_inv                        : std_logic;                     -- rst_controller_reset_out_reset:inv -> [jtag_uart_0:rst_n, pio_0:reset_n, sysid_qsys_0:reset_n]
+	signal mm_interconnect_0_switches_input_s1_write_ports_inv             : std_logic;                     -- mm_interconnect_0_switches_input_s1_write:inv -> switches_input:write_n
+	signal rst_controller_reset_out_reset_ports_inv                        : std_logic;                     -- rst_controller_reset_out_reset:inv -> [jtag_uart_0:rst_n, pio_0:reset_n, switches_input:reset_n, sysid_qsys_0:reset_n]
 
 begin
 
@@ -673,6 +701,19 @@ begin
 			out_port   => indicators_export                           -- external_connection.export
 		);
 
+	switches_input : component impix_system_switches_input
+		port map (
+			clk        => clk_clk,                                             --                 clk.clk
+			reset_n    => rst_controller_reset_out_reset_ports_inv,            --               reset.reset_n
+			address    => mm_interconnect_0_switches_input_s1_address,         --                  s1.address
+			write_n    => mm_interconnect_0_switches_input_s1_write_ports_inv, --                    .write_n
+			writedata  => mm_interconnect_0_switches_input_s1_writedata,       --                    .writedata
+			chipselect => mm_interconnect_0_switches_input_s1_chipselect,      --                    .chipselect
+			readdata   => mm_interconnect_0_switches_input_s1_readdata,        --                    .readdata
+			in_port    => switches_export,                                     -- external_connection.export
+			irq        => irq_mapper_receiver1_irq                             --                 irq.irq
+		);
+
 	sysid_qsys_0 : component impix_system_sysid_qsys_0
 		port map (
 			clock    => clk_clk,                                                 --           clk.clk
@@ -734,6 +775,11 @@ begin
 			pio_0_s1_readdata                                                => mm_interconnect_0_pio_0_s1_readdata,                         --                                                           .readdata
 			pio_0_s1_writedata                                               => mm_interconnect_0_pio_0_s1_writedata,                        --                                                           .writedata
 			pio_0_s1_chipselect                                              => mm_interconnect_0_pio_0_s1_chipselect,                       --                                                           .chipselect
+			switches_input_s1_address                                        => mm_interconnect_0_switches_input_s1_address,                 --                                          switches_input_s1.address
+			switches_input_s1_write                                          => mm_interconnect_0_switches_input_s1_write,                   --                                                           .write
+			switches_input_s1_readdata                                       => mm_interconnect_0_switches_input_s1_readdata,                --                                                           .readdata
+			switches_input_s1_writedata                                      => mm_interconnect_0_switches_input_s1_writedata,               --                                                           .writedata
+			switches_input_s1_chipselect                                     => mm_interconnect_0_switches_input_s1_chipselect,              --                                                           .chipselect
 			sysid_qsys_0_control_slave_address                               => mm_interconnect_0_sysid_qsys_0_control_slave_address,        --                                 sysid_qsys_0_control_slave.address
 			sysid_qsys_0_control_slave_readdata                              => mm_interconnect_0_sysid_qsys_0_control_slave_readdata        --                                                           .readdata
 		);
@@ -743,6 +789,7 @@ begin
 			clk           => open,                     --       clk.clk
 			reset         => open,                     -- clk_reset.reset
 			receiver0_irq => irq_mapper_receiver0_irq, -- receiver0.irq
+			receiver1_irq => irq_mapper_receiver1_irq, -- receiver1.irq
 			sender_irq    => hps_0_f2h_irq0_irq        --    sender.irq
 		);
 
@@ -892,6 +939,8 @@ begin
 	mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write_ports_inv <= not mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write;
 
 	mm_interconnect_0_pio_0_s1_write_ports_inv <= not mm_interconnect_0_pio_0_s1_write;
+
+	mm_interconnect_0_switches_input_s1_write_ports_inv <= not mm_interconnect_0_switches_input_s1_write;
 
 	rst_controller_reset_out_reset_ports_inv <= not rst_controller_reset_out_reset;
 

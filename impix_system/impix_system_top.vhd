@@ -176,7 +176,8 @@ component impix_system is
 		hps_0_io_hps_io_gpio_inst_GPIO61  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO61
 		reset_reset_n                     : in    std_logic                     := 'X';             -- reset_n
 		-- Ovo je novo, odnosno dodano da se iskoristi
-		indicators_export                 : out   std_logic_vector(3 downto 0)                     -- export
+		indicators_export                 : out   std_logic_vector(3 downto 0);                     -- export
+		switches_export                   : in    std_logic_vector(3 downto 0)  := (others => 'X')  -- export
 	);
 end component impix_system;
 
@@ -193,6 +194,13 @@ component display_7seg_driver is
 	);
 end component display_7seg_driver;
 
+component display_LED_driver is
+	port( 
+		data_input		: in		std_logic_vector(3 downto 0);
+		
+		LEDR           : out   	std_logic_vector(9 downto 0)
+	);
+end component display_LED_driver;
 begin
 
 impix_system_inst : component impix_system
@@ -271,7 +279,8 @@ impix_system_inst : component impix_system
 		hps_0_io_hps_io_gpio_inst_GPIO61      => HPS_GSENSOR_INT,
 		reset_reset_n                         => '1',
 		-- Novo dodano:
-		indicators_export							  => display_val
+		indicators_export							  => display_val,
+		switches_export							  => SW(3 downto 0)
 	);
 
 	
@@ -285,5 +294,11 @@ impix_system_inst : component impix_system
 		HEX3				=> HEX3_N,
 		HEX4				=> HEX4_N,
 		HEX5				=> HEX5_N
+		);
+	
+	display_LED_inst : component display_LED_driver
+	port map(
+		data_input		=> display_val,
+		LEDR				=> LEDR
 		);
 end;
