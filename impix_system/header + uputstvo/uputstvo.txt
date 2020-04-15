@@ -1,0 +1,6 @@
+Ovo je uputstvo kako generisati header fajl sa svim base adresama u ciljanom sistemu!
+1. Kopira se *.sopcinfo fajl u intelFPGA_lite/<version>/quartus/sopc_builder/bin
+2. Otvori se embedded_command_shell (intelFPGA/<version>/embedded)
+3. Pozicionira se u direktorijum intelFPGA_lite/<version>/quartus/sopc_builder/bin iz embedded_command_shell -a 
+4. Na PATH se doda pozicija tog foldera (dobije se pwd komandom) PATH = $PATH:+ (ono sto se dobije iz pwd-a)
+5. Pokrene se sopc-create-header-files sa komandom: ./sopc-create-header-files "./impix_system.sopcinfo" --single addres_base.h --module hps_0

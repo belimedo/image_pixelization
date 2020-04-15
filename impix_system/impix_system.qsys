@@ -37,7 +37,7 @@
    {
       datum baseAddress
       {
-         value = "0";
+         value = "24";
          type = "String";
       }
    }
@@ -47,6 +47,14 @@
       {
          value = "4";
          type = "int";
+      }
+   }
+   element pio_0.s1
+   {
+      datum baseAddress
+      {
+         value = "0";
+         type = "String";
       }
    }
    element sysid_qsys_0
@@ -61,7 +69,7 @@
    {
       datum baseAddress
       {
-         value = "8";
+         value = "16";
          type = "String";
       }
    }
@@ -94,6 +102,11 @@
    type="reset"
    dir="start" />
  <interface name="hps_0_io" internal="hps_0.hps_io" type="conduit" dir="end" />
+ <interface
+   name="indicators"
+   internal="pio_0.external_connection"
+   type="conduit"
+   dir="end" />
  <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
  <module name="clk_0" kind="clock_source" version="17.0" enabled="1">
   <parameter name="clockFrequency" value="50000000" />
@@ -652,17 +665,17 @@
  </module>
  <module name="pio_0" kind="altera_avalon_pio" version="17.0" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="true" />
-  <parameter name="bitModifyingOutReg" value="true" />
+  <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="true" />
   <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="InOut" />
+  <parameter name="direction" value="Output" />
   <parameter name="edgeType" value="ANY" />
   <parameter name="generateIRQ" value="true" />
   <parameter name="irqType" value="EDGE" />
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="8" />
+  <parameter name="width" value="4" />
  </module>
  <module
    name="sysid_qsys_0"
@@ -677,7 +690,7 @@
    start="hps_0.h2f_axi_master"
    end="jtag_uart_0.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="baseAddress" value="0x0018" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -686,7 +699,16 @@
    start="hps_0.h2f_axi_master"
    end="sysid_qsys_0.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0008" />
+  <parameter name="baseAddress" value="0x0010" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="17.0"
+   start="hps_0.h2f_axi_master"
+   end="pio_0.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="17.0" start="clk_0.clk" end="sysid_qsys_0.clk" />

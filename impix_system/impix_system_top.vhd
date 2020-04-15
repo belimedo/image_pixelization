@@ -96,6 +96,9 @@ architecture rtl of impix_system_top is
 signal hps_fpga_reset_n:	std_logic;
 signal displays_ena_n:		std_logic_vector(5 downto 0);
 
+signal switch_values:		std_logic_vector(3 downto 0);
+signal display_val:			std_logic_vector(3 downto 0);
+
 component impix_system is
 	port (
 		clk_clk                           : in    std_logic                     := 'X';             -- clk
@@ -171,9 +174,24 @@ component impix_system is
 		hps_0_io_hps_io_gpio_inst_GPIO53  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO53
 		hps_0_io_hps_io_gpio_inst_GPIO54  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO54
 		hps_0_io_hps_io_gpio_inst_GPIO61  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO61
-		reset_reset_n                     : in    std_logic                     := 'X'              -- reset_n
+		reset_reset_n                     : in    std_logic                     := 'X';             -- reset_n
+		-- Ovo je novo, odnosno dodano da se iskoristi
+		indicators_export                 : out   std_logic_vector(3 downto 0)                     -- export
 	);
 end component impix_system;
+
+component display_7seg_driver is
+	port( 
+		data_input		: in		std_logic_vector(3 downto 0);
+		
+		HEX0           : out   	std_logic_vector(6 downto 0);
+		HEX1           : out   	std_logic_vector(6 downto 0);
+		HEX2           : out   	std_logic_vector(6 downto 0);
+		HEX3           : out   	std_logic_vector(6 downto 0);
+		HEX4           : out   	std_logic_vector(6 downto 0);
+		HEX5           : out   	std_logic_vector(6 downto 0)
+	);
+end component display_7seg_driver;
 
 begin
 
@@ -251,7 +269,21 @@ impix_system_inst : component impix_system
 		hps_0_io_hps_io_gpio_inst_GPIO53      => HPS_LED,
 		hps_0_io_hps_io_gpio_inst_GPIO54      => HPS_KEY_N,
 		hps_0_io_hps_io_gpio_inst_GPIO61      => HPS_GSENSOR_INT,
-		reset_reset_n                         => '1'
+		reset_reset_n                         => '1',
+		-- Novo dodano:
+		indicators_export							  => display_val
 	);
+
 	
+-- Dodajemo novu komponentu
+	display_7seg_inst : component display_7seg_driver
+	port map(
+		data_input		=> display_val,
+		HEX0				=> HEX0_N,
+		HEX1				=> HEX1_N,
+		HEX2				=> HEX2_N,
+		HEX3				=> HEX3_N,
+		HEX4				=> HEX4_N,
+		HEX5				=> HEX5_N
+		);
 end;

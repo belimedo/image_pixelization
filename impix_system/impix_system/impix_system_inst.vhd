@@ -73,7 +73,8 @@
 			hps_0_io_hps_io_gpio_inst_GPIO53  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO53
 			hps_0_io_hps_io_gpio_inst_GPIO54  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO54
 			hps_0_io_hps_io_gpio_inst_GPIO61  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO61
-			reset_reset_n                     : in    std_logic                     := 'X'              -- reset_n
+			reset_reset_n                     : in    std_logic                     := 'X';             -- reset_n
+			indicators_export                 : out   std_logic_vector(3 downto 0)                      -- export
 		);
 	end component impix_system;
 
@@ -152,6 +153,7 @@
 			hps_0_io_hps_io_gpio_inst_GPIO53  => CONNECTED_TO_hps_0_io_hps_io_gpio_inst_GPIO53,  --                .hps_io_gpio_inst_GPIO53
 			hps_0_io_hps_io_gpio_inst_GPIO54  => CONNECTED_TO_hps_0_io_hps_io_gpio_inst_GPIO54,  --                .hps_io_gpio_inst_GPIO54
 			hps_0_io_hps_io_gpio_inst_GPIO61  => CONNECTED_TO_hps_0_io_hps_io_gpio_inst_GPIO61,  --                .hps_io_gpio_inst_GPIO61
-			reset_reset_n                     => CONNECTED_TO_reset_reset_n                      --           reset.reset_n
+			reset_reset_n                     => CONNECTED_TO_reset_reset_n,                     --           reset.reset_n
+			indicators_export                 => CONNECTED_TO_indicators_export                  --      indicators.export
 		);
 

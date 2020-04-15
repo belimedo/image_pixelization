@@ -73,6 +73,7 @@
 			hps_0_io_hps_io_gpio_inst_GPIO53  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO53
 			hps_0_io_hps_io_gpio_inst_GPIO54  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO54
 			hps_0_io_hps_io_gpio_inst_GPIO61  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO61
+			indicators_export                 : out   std_logic_vector(3 downto 0);                     -- export
 			reset_reset_n                     : in    std_logic                     := 'X'              -- reset_n
 		);
 	end component impix_system;

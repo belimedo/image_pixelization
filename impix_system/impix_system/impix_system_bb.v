@@ -73,7 +73,8 @@ module impix_system (
 	hps_0_io_hps_io_gpio_inst_GPIO53,
 	hps_0_io_hps_io_gpio_inst_GPIO54,
 	hps_0_io_hps_io_gpio_inst_GPIO61,
-	reset_reset_n);	
+	reset_reset_n,
+	indicators_export);	
 
 	input		clk_clk;
 	output	[14:0]	hps_0_ddr_mem_a;
@@ -149,4 +150,5 @@ module impix_system (
 	inout		hps_0_io_hps_io_gpio_inst_GPIO54;
 	inout		hps_0_io_hps_io_gpio_inst_GPIO61;
 	input		reset_reset_n;
+	output	[3:0]	indicators_export;
 endmodule
