@@ -1,12 +1,12 @@
-Fitter Status : Successful - Tue Apr 14 17:36:18 2020
-Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Fitter Status : Successful - Thu Apr 16 20:31:22 2020
+Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : impix_system_top
 Top-level Entity Name : impix_system_top
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 521 / 32,070 ( 2 % )
-Total registers : 868
+Logic utilization (in ALMs) : 933 / 32,070 ( 3 % )
+Total registers : 1287
 Total pins : 233 / 457 ( 51 % )
 Total virtual pins : 0
 Total block memory bits : 1,024 / 4,065,280 ( < 1 % )

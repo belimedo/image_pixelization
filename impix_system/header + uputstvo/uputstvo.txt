@@ -7,3 +7,10 @@ Ovo je uputstvo kako generisati header fajl sa svim base adresama u ciljanom sis
 
 Sajt sa adresom za HPS2FPGA AXI Bridge adresom:
 https://www.intel.com/content/www/us/en/programmable/hps/cyclone-v/hps.html
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+GENERISANJE SLIKE:
+-----------------------------------------------------------------------------------------------------------------------------------
+1. Pokretanje iz ECS-a komandom: quartus_cpf -c -o bitstream_compression=on impix_system_top.sof impix_system.rbf
+2. Kreiranje u-boot preloader-a uz pomoc bsp-editora

@@ -1,6 +1,6 @@
 EDA Netlist Writer report for impix_system_top
-Tue Apr 14 17:37:15 2020
-Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Thu Apr 16 20:33:17 2020
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
 ---------------------
@@ -17,7 +17,7 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2016  Intel Corporation. All rights reserved.
+Copyright (C) 2017  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Tue Apr 14 17:37:15 2020 ;
+; EDA Netlist Writer Status ; Successful - Thu Apr 16 20:33:17 2020 ;
 ; Revision Name             ; impix_system_top                      ;
 ; Top-level Entity Name     ; impix_system_top                      ;
 ; Family                    ; Cyclone V                             ;
@@ -67,13 +67,13 @@ agreement for further details.
 +---------------------------------------------------------------------------------------------------+------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                                        ;
-+-------------------------------------------------------------------------------------------------------------------+
-; Generated Files                                                                                                   ;
-+-------------------------------------------------------------------------------------------------------------------+
-; C:/Users/A6/Documents/intelFPGA/16.1/URS/image_pixelization/impix_system/simulation/modelsim/impix_system_top.vho ;
-+-------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                   ;
++----------------------------------------------------------------------------------------------+
+; Generated Files                                                                              ;
++----------------------------------------------------------------------------------------------+
+; /home/milan/URS/Git/image_pixelization/impix_system/simulation/modelsim/impix_system_top.vho ;
++----------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -81,16 +81,16 @@ agreement for further details.
 +-----------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
-    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Tue Apr 14 17:37:10 2020
-Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off impix_system -c impix_system_top
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Processing started: Thu Apr 16 20:33:01 2020
+Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off impix_system_top -c impix_system_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Warning (10905): Generated the EDA functional simulation netlist because it is the only supported netlist type for this device.
-Info (204019): Generated file impix_system_top.vho in folder "C:/Users/A6/Documents/intelFPGA/16.1/URS/image_pixelization/impix_system/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file impix_system_top.vho in folder "/home/milan/URS/Git/image_pixelization/impix_system/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4823 megabytes
-    Info: Processing ended: Tue Apr 14 17:37:15 2020
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 1242 megabytes
+    Info: Processing ended: Thu Apr 16 20:33:18 2020
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:17
 
 

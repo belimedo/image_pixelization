@@ -590,7 +590,7 @@ module hps_sdram (
 		.INTG_EXTRA_CTL_CLK_WR_TO_WR             (0),
 		.INTG_EXTRA_CTL_CLK_WR_TO_WR_DIFF_CHIP   (0),
 		.INTG_MEM_IF_TREFI                       (3120),
-		.INTG_MEM_IF_TRFC                        (31),
+		.INTG_MEM_IF_TRFC                        (120),
 		.INTG_RCFG_SUM_WT_PRIORITY_0             (0),
 		.INTG_RCFG_SUM_WT_PRIORITY_1             (0),
 		.INTG_RCFG_SUM_WT_PRIORITY_2             (0),

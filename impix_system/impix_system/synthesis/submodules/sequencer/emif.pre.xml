@@ -174,7 +174,7 @@
         <define name="MEM_TRC" value="20"/>
         <define name="MEM_TRCD" value="6"/>
         <define name="MEM_TREFI" value="3120"/>
-        <define name="MEM_TRFC" value="31"/>
+        <define name="MEM_TRFC" value="120"/>
         <define name="MEM_TRP" value="6"/>
         <define name="MEM_TRRD" value="3"/>
         <define name="MEM_TRTP" value="3"/>
