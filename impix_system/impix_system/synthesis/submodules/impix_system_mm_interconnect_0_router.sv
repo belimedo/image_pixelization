@@ -197,7 +197,7 @@ module impix_system_mm_interconnect_0_router
         // --------------------------------------------------
 
     // ( 0x0 .. 0x10 )
-    if ( {address[RG:PAD0],{PAD0{1'b0}}} == 6'h0   ) begin
+    if ( {address[RG:PAD0],{PAD0{1'b0}}} == 6'h0  && read_transaction  ) begin
             src_channel = 4'b1000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end

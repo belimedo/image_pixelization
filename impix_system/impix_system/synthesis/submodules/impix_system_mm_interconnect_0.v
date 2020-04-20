@@ -59,10 +59,7 @@ module impix_system_mm_interconnect_0 (
 		output wire [31:0] pio_0_s1_writedata,                                               //                                                           .writedata
 		output wire        pio_0_s1_chipselect,                                              //                                                           .chipselect
 		output wire [1:0]  switches_input_s1_address,                                        //                                          switches_input_s1.address
-		output wire        switches_input_s1_write,                                          //                                                           .write
 		input  wire [31:0] switches_input_s1_readdata,                                       //                                                           .readdata
-		output wire [31:0] switches_input_s1_writedata,                                      //                                                           .writedata
-		output wire        switches_input_s1_chipselect,                                     //                                                           .chipselect
 		output wire [0:0]  sysid_qsys_0_control_slave_address,                               //                                 sysid_qsys_0_control_slave.address
 		input  wire [31:0] sysid_qsys_0_control_slave_readdata                               //                                                           .readdata
 	);
@@ -719,11 +716,10 @@ module impix_system_mm_interconnect_0 (
 		.uav_lock               (switches_input_s1_agent_m0_lock),               //                         .lock
 		.uav_debugaccess        (switches_input_s1_agent_m0_debugaccess),        //                         .debugaccess
 		.av_address             (switches_input_s1_address),                     //      avalon_anti_slave_0.address
-		.av_write               (switches_input_s1_write),                       //                         .write
 		.av_readdata            (switches_input_s1_readdata),                    //                         .readdata
-		.av_writedata           (switches_input_s1_writedata),                   //                         .writedata
-		.av_chipselect          (switches_input_s1_chipselect),                  //                         .chipselect
+		.av_write               (),                                              //              (terminated)
 		.av_read                (),                                              //              (terminated)
+		.av_writedata           (),                                              //              (terminated)
 		.av_begintransfer       (),                                              //              (terminated)
 		.av_beginbursttransfer  (),                                              //              (terminated)
 		.av_burstcount          (),                                              //              (terminated)
@@ -732,6 +728,7 @@ module impix_system_mm_interconnect_0 (
 		.av_waitrequest         (1'b0),                                          //              (terminated)
 		.av_writebyteenable     (),                                              //              (terminated)
 		.av_lock                (),                                              //              (terminated)
+		.av_chipselect          (),                                              //              (terminated)
 		.av_clken               (),                                              //              (terminated)
 		.uav_clken              (1'b0),                                          //              (terminated)
 		.av_debugaccess         (),                                              //              (terminated)

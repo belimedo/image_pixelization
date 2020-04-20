@@ -1,6 +1,6 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst impix_system.jtag_uart_0 -pg 1 -lvl 2 -y 250
+preplace inst impix_system.jtag_uart_0 -pg 1 -lvl 2 -y 210
 preplace inst impix_system.hps_0.timer -pg 1
 preplace inst impix_system.hps_0.dcan0 -pg 1
 preplace inst impix_system.hps_0.sdmmc -pg 1
@@ -30,7 +30,7 @@ preplace inst impix_system.hps_0.usb0 -pg 1
 preplace inst impix_system.hps_0.spim0 -pg 1
 preplace inst impix_system.hps_0.clkmgr -pg 1
 preplace inst impix_system.hps_0.f2s_periph_ref_clk -pg 1
-preplace inst impix_system.hps_0 -pg 1 -lvl 2 -y 420
+preplace inst impix_system.hps_0 -pg 1 -lvl 2 -y 480
 preplace inst impix_system.hps_0.usb1 -pg 1
 preplace inst impix_system.hps_0.spim1 -pg 1
 preplace inst impix_system.hps_0.sysmgr -pg 1
@@ -57,16 +57,16 @@ preplace inst impix_system.hps_0.wd_timer1 -pg 1
 preplace inst impix_system.hps_0.f2s_sdram_ref_clk -pg 1
 preplace inst impix_system.hps_0.fpga_interfaces -pg 1
 preplace inst impix_system.clk_0 -pg 1 -lvl 1 -y 170
-preplace netloc EXPORT<net_container>impix_system</net_container>(SLAVE)impix_system.hps_0_io,(SLAVE)hps_0.hps_io) 1 0 2 NJ 470 NJ
-preplace netloc EXPORT<net_container>impix_system</net_container>(MASTER)hps_0.h2f_reset,(MASTER)impix_system.hps_0_h2f_reset) 1 2 2 NJ 490 NJ
+preplace netloc FAN_OUT<net_container>impix_system</net_container>(SLAVE)pio_0.clk,(SLAVE)switches_input.clk,(SLAVE)sysid_qsys_0.clk,(MASTER)clk_0.clk,(SLAVE)jtag_uart_0.clk,(SLAVE)hps_0.h2f_axi_clock,(SLAVE)hps_0.f2h_axi_clock) 1 1 2 320 360 NJ
+preplace netloc FAN_OUT<net_container>impix_system</net_container>(SLAVE)switches_input.s1,(MASTER)hps_0.h2f_axi_master,(SLAVE)sysid_qsys_0.control_slave,(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)pio_0.s1) 1 1 2 360 420 690
+preplace netloc EXPORT<net_container>impix_system</net_container>(SLAVE)impix_system.hps_0_io,(SLAVE)hps_0.hps_io) 1 0 2 NJ 530 NJ
+preplace netloc EXPORT<net_container>impix_system</net_container>(MASTER)hps_0.h2f_reset,(MASTER)impix_system.hps_0_h2f_reset) 1 2 2 NJ 550 NJ
 preplace netloc EXPORT<net_container>impix_system</net_container>(SLAVE)clk_0.clk_in,(SLAVE)impix_system.clk) 1 0 1 NJ
-preplace netloc FAN_OUT<net_container>impix_system</net_container>(SLAVE)jtag_uart_0.irq,(SLAVE)switches_input.irq,(MASTER)hps_0.f2h_irq0) 1 1 2 350 360 620
-preplace netloc FAN_OUT<net_container>impix_system</net_container>(SLAVE)hps_0.h2f_axi_clock,(SLAVE)hps_0.f2h_axi_clock,(MASTER)clk_0.clk,(SLAVE)sysid_qsys_0.clk,(SLAVE)jtag_uart_0.clk,(SLAVE)switches_input.clk,(SLAVE)pio_0.clk) 1 1 2 310 380 660
-preplace netloc FAN_OUT<net_container>impix_system</net_container>(SLAVE)switches_input.reset,(MASTER)clk_0.clk_reset,(SLAVE)pio_0.reset,(SLAVE)jtag_uart_0.reset,(SLAVE)sysid_qsys_0.reset) 1 1 2 330 220 680
-preplace netloc EXPORT<net_container>impix_system</net_container>(SLAVE)impix_system.hps_0_ddr,(SLAVE)hps_0.memory) 1 0 2 NJ 490 NJ
-preplace netloc EXPORT<net_container>impix_system</net_container>(SLAVE)impix_system.indicators,(SLAVE)pio_0.external_connection) 1 0 2 NJ 60 NJ
-preplace netloc FAN_OUT<net_container>impix_system</net_container>(SLAVE)switches_input.s1,(SLAVE)pio_0.s1,(SLAVE)sysid_qsys_0.control_slave,(MASTER)hps_0.h2f_axi_master,(SLAVE)jtag_uart_0.avalon_jtag_slave) 1 1 2 350 240 640
-preplace netloc EXPORT<net_container>impix_system</net_container>(SLAVE)impix_system.switches,(SLAVE)switches_input.external_connection) 1 0 3 NJ 560 NJ 560 NJ
-preplace netloc EXPORT<net_container>impix_system</net_container>(SLAVE)impix_system.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
-levelinfo -pg 1 0 80 1010
-levelinfo -hier impix_system 90 120 450 730 880
+preplace netloc EXPORT<net_container>impix_system</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)impix_system.reset) 1 0 1 NJ
+preplace netloc POINT_TO_POINT<net_container>impix_system</net_container>(SLAVE)jtag_uart_0.irq,(MASTER)hps_0.f2h_irq0) 1 1 2 380 440 670
+preplace netloc EXPORT<net_container>impix_system</net_container>(SLAVE)switches_input.external_connection,(SLAVE)impix_system.switches_export) 1 0 3 NJ 380 NJ 380 NJ
+preplace netloc FAN_OUT<net_container>impix_system</net_container>(SLAVE)switches_input.reset,(SLAVE)sysid_qsys_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)pio_0.reset,(SLAVE)jtag_uart_0.reset) 1 1 2 340 320 710
+preplace netloc EXPORT<net_container>impix_system</net_container>(SLAVE)pio_0.external_connection,(SLAVE)impix_system.indicators) 1 0 2 NJ 60 NJ
+preplace netloc EXPORT<net_container>impix_system</net_container>(SLAVE)impix_system.hps_0_ddr,(SLAVE)hps_0.memory) 1 0 2 NJ 570 NJ
+levelinfo -pg 1 0 110 1060
+levelinfo -hier impix_system 120 150 500 780 930

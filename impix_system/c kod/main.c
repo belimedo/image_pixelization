@@ -70,13 +70,32 @@ int main(int argc, char* argv[])
 	
 	int i = 0;
     uint8_t test = 1;
-	while(i < 5) {
-		printf("Unesi test:");
-		scanf(" %c",&test);
-		*((uint8_t*)addr_h2f_led) = test;
-		i++;	
+	// while(i < 5) {
+	// 	printf("Unesi test:");
+	// 	scanf(" %c",&test);
+	// 	*((uint8_t*)addr_h2f_led) = test;
+	// 	i++;	
+	// 	printf("%08x\n",*((uint8_t*)axi_virtual_base));
+	// 	printf("%08x%08x%08x%08x\n",*((uint32_t*)(axi_virtual_base + (unsigned long)(0x03))));
+	// }
+	uint8_t old_value = 0x00;
+	uint32_t new_value[4] = {0};
+	uint8_t stop = 0;
+	printf(" %08x\n",0x10);
+	while(stop < 30) {
+		//printf("Ista?!");
+		old_value = *((uint8_t*)axi_virtual_base);
+		new_value[0] = *((uint32_t*)axi_virtual_base);
+		new_value[1] = *((uint32_t*)(axi_virtual_base + 0x01));
+		new_value[2] = *((uint32_t*)(axi_virtual_base + 0x02));
+		new_value[3] = *((uint32_t*)(axi_virtual_base + 0x03));
+		printf("Vrijednosti su: %08x - old_value, %032x - new_value[0], %032x - new_value[1], %032x - new_value[2], %032x - new_value[3]\n",old_value,new_value[0],new_value[1],new_value[2],new_value[3]);
+		//*((uint8_t*)addr_h2f_led) = new_value;
+		stop++;
+		sleep(1);
+		//usleep(10000);
 	}
-    *((uint8_t*)addr_h2f_led) = test;
+    
 	//alt_write_byte(addr_h2f_led, test);
 	
 	// while (1) {
